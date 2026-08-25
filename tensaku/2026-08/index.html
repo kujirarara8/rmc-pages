@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>売上別添削会 学びの共有</title>
+<style>
+  :root{
+    --navy:#4E5A72;
+    --navy-light:#7E8AA0;
+    --ivory:#FBF8F3;
+    --brown:#6B5B4E;
+    --line:#E4E0D8;
+    --text:#2E2E2E;
+    --muted:#6E6E6E;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#FFFFFF;
+    color:var(--text);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+    line-height:1.9;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 80px;}
+
+  header{padding:56px 0 32px;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:13px;letter-spacing:.14em;color:var(--navy-light);margin:0 0 12px;}
+  h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:30px;line-height:1.5;margin:0 0 18px;color:var(--navy);font-weight:600;
+  }
+  .lead{font-size:15px;color:var(--muted);margin:0;}
+
+  .notice{
+    background:var(--ivory);
+    border-radius:10px;
+    padding:22px 24px;
+    margin:32px 0 8px;
+    font-size:14.5px;
+    line-height:1.85;
+  }
+  .notice p{margin:0 0 10px;}
+  .notice p:last-child{margin:0;}
+  .notice strong{color:var(--navy);}
+
+  h2{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:22px;line-height:1.55;
+    margin:64px 0 4px;color:var(--navy);font-weight:600;
+    padding-top:28px;border-top:1px solid var(--line);
+  }
+  .num{
+    display:inline-block;font-size:12px;letter-spacing:.1em;
+    color:#FFF;background:var(--navy);border-radius:3px;
+    padding:3px 9px;margin-bottom:14px;font-family:sans-serif;
+  }
+
+  .block{margin:26px 0;}
+  .label{
+    font-size:12.5px;letter-spacing:.08em;font-weight:700;
+    color:var(--brown);margin:0 0 10px;
+  }
+  .label.key{color:var(--navy);}
+
+  .said{
+    border-left:3px solid var(--line);
+    padding:2px 0 2px 18px;
+    color:#4A4A4A;font-size:15px;
+  }
+  .said p{margin:0 0 12px;}
+  .said p:last-child{margin:0;}
+
+  .point{
+    background:var(--ivory);
+    border-left:4px solid var(--navy);
+    border-radius:0 8px 8px 0;
+    padding:20px 22px;
+  }
+  .point p{margin:0 0 12px;font-size:15.5px;}
+  .point p:last-child{margin:0;}
+  .point .headline{font-weight:700;color:var(--navy);font-size:16px;}
+
+  .also ul{margin:0;padding-left:0;list-style:none;}
+  .also li{
+    position:relative;padding-left:20px;margin-bottom:12px;font-size:15px;color:#4A4A4A;
+  }
+  .also li:last-child{margin-bottom:0;}
+  .also li::before{
+    content:"";position:absolute;left:2px;top:12px;
+    width:7px;height:7px;border-radius:50%;background:var(--navy-light);
+  }
+  .also li b{color:var(--text);font-weight:700;}
+
+  .takeaway{
+    margin:72px 0 0;padding:32px 28px;
+    border:1px solid var(--line);border-radius:12px;
+  }
+  .takeaway h2{margin:0 0 20px;padding:0;border:none;font-size:20px;}
+  .takeaway ol{margin:0;padding-left:1.3em;}
+  .takeaway li{margin-bottom:13px;font-size:15px;}
+  .takeaway li:last-child{margin-bottom:0;}
+
+  .action{margin:44px 0 0;}
+  .action h2{font-size:20px;}
+  .action .card{
+    background:var(--ivory);border-radius:10px;padding:22px 24px;margin-top:18px;
+  }
+  .action .card p{margin:0 0 12px;font-size:15px;}
+  .action .card p:last-child{margin:0;}
+  .action .card span{
+    display:inline-block;font-size:12px;color:#FFF;background:var(--navy-light);
+    border-radius:3px;padding:2px 8px;margin-right:8px;vertical-align:2px;
+  }
+
+  footer{
+    margin-top:72px;padding-top:28px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--muted);
+  }
+  footer p{margin:0 0 8px;}
+  footer p:last-child{margin:0;}
+
+  @media (max-width:600px){
+    body{font-size:15.5px;}
+    .wrap{padding:0 18px 60px;}
+    header{padding:36px 0 26px;}
+    h1{font-size:24px;}
+    h2{font-size:19.5px;margin-top:52px;}
+    .point{padding:18px 18px;}
+    .takeaway{padding:26px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">REBEL MUSES CRAFT</p>
+  <h1>売上別添削会<br>学びの共有</h1>
+  <p class="lead">30万以上 / 50万以上の部屋の方向け・テキスト版</p>
+</header>
+
+<div class="notice">
+  <p><strong>この会はアーカイブ動画を残していません。</strong>後から誰でも見返せる状態だと手を挙げづらいので、その場で気軽に話せることを大事にしています。</p>
+  <p>そのかわり、話した内容が流れてしまわないように、このページに残します。<strong>どなたの添削かは書いていません。</strong>一つひとつの相談を、誰にでも当てはまる形に置き換えてあります。</p>
+  <p>自分は当てはまらないと思ったテーマほど、最後の「こんな時にも同じことが言えます」を読んでみてください。</p>
+</div>
+
+<!-- 1 -->
+<h2><span class="num">01</span><br>売る場面では、おしゃれさより分かりやすさが勝つ</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>販売の日程をおしゃれなデザインの中に入れていて、パッと見ではいつ買えるのか分からない状態になっていました。「数量限定」とは書いてあるものの、何点出るのかは書かれていません。</p>
+    <p>別の方は、プロフィール文が情報でいっぱいでした。よく読むと、三行がほぼ同じことを言っています。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">おしゃれさは、分かりにくさで成立していることがあります。</p>
+    <p>余白があって、情報が少なくて、少し謎めいている。それが洗練して見える理由です。だから世界観を作りたい場所では、それでいい。</p>
+    <p>ただし<b>買う判断をさせる場所では、分かりにくさはそのまま機会損失になります</b>。世界観を見せる場所と、判断させる場所を分けて考えてください。</p>
+    <p>それから「限定」は、数字が入って初めて動機になります。「数量限定」では動きません。「50点だけ」と書いた瞬間に、これしかないんだと思ってもらえます。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>ハイライトの名前</b>。世界観に寄せた言葉にすると、初めて来た人はどれを見ればいいのか分かりません。買う前に読んでほしいものだけは、そのままの言葉にしてください。</li>
+      <li><b>ショップの商品名</b>。世界観を込めた名前をつけると、検索でも一覧でも中身が伝わりません。名前は世界観、説明文の一行目は事実、という分け方ができます。</li>
+      <li><b>プロフィール文</b>。同じ意味の文が複数あるなら一行にまとめて、余白を作って、次回の販売日程が一番目立つようにしてください。読む量が減るほど、伝わる量は増えます。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 -->
+<h2><span class="num">02</span><br>初めて見た人に、何を売っているか伝わっているか</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>靴のパーツを販売している方のアカウントを見て、私は最初「靴を売っている」と思っていました。実際に売っているのはパーツの方です。</p>
+    <p>別の方は、世界観を大事にした写真で統一していて、とても素敵でした。ただ商品だけを写した写真が一枚もなく、目が写真全体に向いてしまいます。ショップが開いた時に、この商品を目掛けて来てもらいづらい状態でした。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">作り手は商品を知りすぎているので、初めて見る人の目線を失います。</p>
+    <p>自分には当たり前に見えているものが、他の人には何なのか分かりません。これは能力の問題ではなくて、距離の問題です。近くにいる人には絶対に見えません。</p>
+    <p>解き方はシンプルで、<b>商品だと一目で分かる写真を混ぜること</b>。世界観の写真ばかりだと、その中の何が商品なのか区別がつきません。商品単体の写真が数枚混ざるだけで、コントラストが生まれて商品が浮き上がります。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>梱包や箱を開けた写真</b>。何が届くのかが一枚で伝わります。パーツや小物のように「本体と間違われやすい商品」ほど効きます。</li>
+      <li><b>使う前と使った後を並べた写真</b>。商品そのものが分かりにくい時は、変化を見せると役割が伝わります。</li>
+      <li><b>フィード投稿での説明</b>。どの商品がどれに合うのか、どう使うのかは、リールよりフィードで説明した方が後から探してもらえます。</li>
+      <li><b>写真を一枚ずつ投稿していないか</b>。タップして二枚目がないと、戻る、次を開く、また戻るの繰り返しになります。詳細まで見てもらえません。同じ商品の別角度や中身は、一つの投稿に重ねてください。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3 -->
+<h2><span class="num">03</span><br>リールとフィードで、別人になっていないか</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>リールで人との関係性を軸にした発信をしていて、それが強みになっている方がいました。ところがフィード投稿には、その要素が一切ありません。何を売っているか分かるように作り替えた結果、強みの方が消えていました。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">お客様は リール → プロフィール → フィード の順で見ます。どこかで別人になると、そこで止まります。</p>
+    <p>リールを見て「いいな」と思った人には、必ず理由があります。温かさに惹かれたのか、ビジュアルの可愛さに惹かれたのか。そのどちらでもない場所に着地すると、<b>惹かれた理由がフィードで裏切られます</b>。</p>
+    <p>「何を売っているか分かるようにする」は正しい。でもそれは<b>強みを消してやることではありません</b>。強みを残したまま、商品が分かるようにするのが本来のやり方です。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>ストーリーズの温度感</b>。リールでは丁寧なのにストーリーズだけ雑、あるいはその逆。同じ人が運営しているように見えているか確認してみてください。</li>
+      <li><b>ショップページ</b>。Instagramの世界観で来た人が、ショップに飛んだ瞬間に別の店に見えることがあります。</li>
+      <li><b>発信の型を変えた時</b>。今の型に飽きたから変える、はいいことです。ただ変える時に、何が自分の強みだったのかを一度書き出してから変えてください。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="num">04</span><br>商品が主役になる背景かどうか</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>柄が多く、パーツもたくさんついた商品を、色がはっきりした背景の上で撮っている方がいました。商品も背景もどちらも主張していて、どこを見ればいいのか決まりません。</p>
+    <p>別の方は、写真全体でカメラと被写体の距離が近く、画面に壁があるように見えていました。一枚ずつは素敵でも、並ぶと圧迫感が出ます。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">背景は、商品が持っているトーンから決めます。自分の好きなものから決めるのではありません。</p>
+    <p>好きなものを全部置くと、うるさくなります。<b>商品に柄や装飾が多いほど、背景はシンプルにする</b>。これは好みではなく、主役を決めるという作業です。</p>
+    <p>距離も同じです。全部が近いと余白がなくなって、窮屈に見えます。数枚は引きで撮って奥行きを作ると、並べた時に呼吸ができます。</p>
+    <p>写真の割合の目安。売ることを優先するなら、9枚のうち6〜7枚を商品が分かる写真に。世界観を優先したいなら逆にして、商品が分かる写真3枚、世界観の写真4枚、奥行きのある引きの写真2枚。この配分でも商品は伝わります。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>小物を足したくなった時</b>。足すより引く方が難しいので、まず一つ抜いて撮り比べてください。</li>
+      <li><b>色の加工</b>。彩度を上げると元気に見えますが、繊細な商品ほど安く見えます。少しオレンジに寄せる、彩度を落とす方向で試してみてください。</li>
+      <li><b>並べた時に見る</b>。一枚単位ではなく、9枚のプレビューで見てから投稿すると、圧迫感や色の偏りに気づけます。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 5 -->
+<h2><span class="num">05</span><br>参考は、決めて、並べて、見比べる</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>「加工すればするほど分からなくなる」という相談がありました。目指したい方向はあるのに、そこに寄っていかない。</p>
+    <p>話を聞くと、参考として見ていたのは自分の好きなジャンルばかりで、商品のテイストとはずれていました。自分の偏りに引っ張られていた形です。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">感覚だけで寄せると、必ず自分の好みに戻ってきます。</p>
+    <p>だから<b>参考にする写真と、自分が加工した写真を並べて保存して、行き来しながら加工してください</b>。並べて見た瞬間に、どこが違うかは一目で分かります。頭の中の記憶と比べても、絶対に分かりません。</p>
+    <p>もう一つ。<b>参考は一つに絞らなくていい</b>し、同じジャンルから探さなくていい。物の置き方はこのジャンルから、色味と加工はこのブランドから、というように分けて借りると、他にない見え方が作れます。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>リールの構成</b>。同じジャンルの人ばかり参考にすると、全員が同じ形になります。伸びている別ジャンルの構成を借りる方が差がつきます。</li>
+      <li><b>商品の見せ方</b>。自分のジャンルに参考が見つからない時は、形が近いジャンルを探してください。平たいものなら文房具、立体のものなら雑貨というように、ジャンルではなく形で探すと見つかります。</li>
+      <li><b>誰かに見てもらう</b>。自分の偏りは自分では見えません。今日のように人に見てもらうのが一番早いです。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 -->
+<h2><span class="num">06</span><br>リピーターは、してほしい行動を口に出して作る</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>リピート率が1〜2割ほどで、ずっと新規を獲得し続けている状態の方がいました。どんな施策があるかという相談です。</p>
+    <p>商品の性質上、何度も買う理由を作りにくい商品でした。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">商品を変えなくても、使い方を見せればリピートは作れます。</p>
+    <p>私がよくやるのは、<b>ストーリーズで「してほしい行動をしている人」を紹介すること</b>です。</p>
+    <p>「これが楽すぎて、持っている靴全部につけてくれているらしい」「友達にも買ってあげたらしい」。こういう言い方を繰り返します。すると、そういう使い方があるんだと知ってもらえて、やっていいんだと許可が出ます。</p>
+    <p>お客様は、教えられていない使い方はしません。<b>やってほしい行動を、実例の形で言い続ける</b>。これがリピートの作り方です。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>プレゼント需要</b>。「意外性のあるプレゼントにぴったり」と言うだけで、自分用しか考えていなかった人に二個目の理由ができます。</li>
+      <li><b>買い足し・色違い</b>。一つ持っている人に向けて「二個目を買った人がいる」と伝えるだけで検討が始まります。</li>
+      <li><b>レビューや感想の紹介</b>。感想をそのまま載せるより、行動が書かれている感想を選ぶと真似してもらえます。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 7 -->
+<h2><span class="num">07</span><br>伸びない原因は、本当にアカウントにあるか</h2>
+
+<div class="block">
+  <p class="label">こんな相談がありました</p>
+  <div class="said">
+    <p>アカウントを見てほしいという相談でしたが、話を聞いていくと、リールが回れば売れる状態はすでにできていました。詰まっていたのは制作できる数の方です。作れる上限に届いてしまっていて、その先に進めない。</p>
+    <p>投稿は月に4本ほど、広告もここ数か月は動かしていない状態でした。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label key">つまり、こういうこと</p>
+  <div class="point">
+    <p class="headline">これはアカウントの問題ではなく、その外側の問題です。</p>
+    <p>売れない時、原因を全部SNSのせいにしてしまいがちです。でも<b>売れる状態はできているのに伸びない場合、ボトルネックはSNSの外にあります</b>。そこを直さないまま投稿を増やしても、売り切れて終わりです。</p>
+    <p>手を打つ順番として、いきなり外注や工場に飛ばず、まず広告を回して<b>いくら使うといくら売れるのかを測ってください</b>。数字が出てから、その数字で外注が成立するかを判断します。順番を逆にすると、利益が残らない契約を結ぶことになります。</p>
+    <p>値段の判断も同じです。<b>商品が動いているなら上げる。動いていない、見られていないなら相場に合わせる。</b>相場ではなく、今売れているかどうかで決めてください。</p>
+  </div>
+</div>
+
+<div class="block">
+  <p class="label">こんな時にも同じことが言えます</p>
+  <div class="also">
+    <ul>
+      <li><b>発送が追いつかない時</b>。投稿を止める前に、梱包を簡略化できないか、発送日をまとめられないかを先に見てください。</li>
+      <li><b>時間が足りない時</b>。投稿の質を下げるより、投稿の本数を減らして広告に置き換えられないかを検討してください。</li>
+      <li><b>外注先の探し方</b>。制作の一部だけを切り出せるなら、スキル販売のサービスやSNSでの募集で頼める場合があります。全部を渡す必要はありません。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- takeaway -->
+<div class="takeaway">
+  <h2>今日の持ち帰り</h2>
+  <ol>
+    <li>世界観を見せる場所と、買う判断をさせる場所を分ける。判断させる場所では分かりやすさを優先する。</li>
+    <li>「限定」は数字を入れて初めて動機になる。</li>
+    <li>作り手は商品を知りすぎている。商品だと一目で分かる写真を混ぜて、初見の人の目線を作る。</li>
+    <li>リール、プロフィール、フィードで別人にならない。強みを消して分かりやすくしない。</li>
+    <li>背景は自分の好きなものではなく、商品のトーンから決める。柄が多い商品ほど背景はシンプルに。</li>
+    <li>参考写真と自分の写真を並べて保存して、見比べながら加工する。参考は一つに絞らず、ジャンルをまたいで借りる。</li>
+    <li>してほしい行動を、実例の形で言い続ける。教えられていない使い方は誰もしない。</li>
+    <li>売れる状態ができているのに伸びないなら、原因はSNSの外にある。測ってから手を打つ。</li>
+  </ol>
+</div>
+
+<!-- action -->
+<div class="action">
+  <h2>今週、手を動かすなら</h2>
+  <div class="card">
+    <p><span>1</span>自分のプロフィールを声に出して読んで、同じことを二回言っている行を削る。次回の販売日程が一番目立つ位置にあるか確認する。</p>
+    <p><span>2</span>フィードを9枚のプレビューで見て、商品だと一目で分かる写真が何枚あるか数える。ゼロなら、今週その一枚を撮る。</p>
+    <p><span>3</span>参考にしたい写真を3枚保存して、自分の直近の写真と並べる。違いを一つ言葉にする。</p>
+  </div>
+</div>
+
+<footer>
+  <p>この内容は売上別添削会で話したものです。動画のアーカイブは残していません。</p>
+  <p>どなたの相談かが分かる情報は載せていません。サロン内での共有にとどめてください。</p>
+</footer>
+
+</div>
+</body>
+</html>
